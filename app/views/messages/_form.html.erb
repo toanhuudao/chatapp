@@ -12,6 +12,9 @@
   <% end %>
   <%= form.hidden_field :room_id, value: room.id %>
 
+  <%=form.label :image %>
+  <%= form.file_field :image,class:"form-control"%>
+
   <div class="input-group">
     <%= form.text_field :content, placeholder: "Type your message here...", class: 'form-control',autocomplete: 'off' %>
     <div class="input-group-append">

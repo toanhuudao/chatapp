@@ -6,5 +6,9 @@
     <div class="author">
       <%= message.user.username %>
     </div>
+
+    <% if message.image.attached? %>
+      <%=image_tag message.image %>
+    <% end %>
   </div>
 </div>

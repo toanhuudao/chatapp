@@ -3,11 +3,11 @@ import consumer from "./consumer"
 document.addEventListener('turbolinks:load', ()=>{
     const room_element = document.getElementById("room-id");
     const room_id = Number(room_element.getAttribute("data-room-id"));
-    console.log(consumer.subscriptions)
-    consumer.subscriptions.subscriptions.forEach(((subscription)=>{
-        consumer.subscriptions.remove(subscription)
-        })
-    )
+
+    // consumer.subscriptions.subscriptions.forEach(((subscription)=>{
+    //     consumer.subscriptions.remove(subscription)
+    //     })
+    // )
 
 
 
@@ -23,11 +23,9 @@ document.addEventListener('turbolinks:load', ()=>{
 
         received(data) {
             // Called when there's incoming data on the websocket for this channel
-
+            console.log(data.message);
             const user_element = document.getElementById("user-id");
             const user_id = Number(user_element.getAttribute("data-user-id"));
-            console.log(user_id)
-            console.log(data.message.user_id)
             let html;
             if (user_id === data.message.user_id) {
                 html = data.mine;

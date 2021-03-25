@@ -10,6 +10,13 @@ class SendMassageJob < ApplicationJob
       partial: 'messages/mine',
       locals: { message: message}
     )
-    ActionCable.server.broadcast("room_channel_#{message.room_id}", { mine: mine,theirs: theirs,message:message})
+    message1=message
+    attachment_data1= message.attachment_data
+    ActionCable.server.broadcast("room_channel_#{message.room_id}",
+                                 { mine: mine,
+                                   theirs: theirs,
+                                   message:message,
+                                   attachment_data:message.attachment_data
+                                 })
   end
 end
