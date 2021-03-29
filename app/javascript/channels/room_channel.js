@@ -23,17 +23,21 @@ document.addEventListener('turbolinks:load', ()=>{
 
         received(data) {
             // Called when there's incoming data on the websocket for this channel
-            console.log(data.message);
             const user_element = document.getElementById("user-id");
             const user_id = Number(user_element.getAttribute("data-user-id"));
             let html;
             if (user_id === data.message.user_id) {
                 html = data.mine;
+                document.getElementById("message_content").value = "";
+                document.getElementById("message_image").value = "";
             } else {
                 html = data.theirs;
             }
             const mess = document.getElementById('messages')
+
             mess.innerHTML = mess.innerHTML +html
+
+
         }
     });
 })
