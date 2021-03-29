@@ -5,6 +5,7 @@ ruby '3.0.0'
 gem 'image_processing'
 gem 'mini_magick'
 gem 'redis'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
